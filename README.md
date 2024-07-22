@@ -1,7 +1,7 @@
 ![Banner](https://github.com/instructlab/.github/blob/main/assets/instructlab-banner.png)
 # Instruct Lab Docker Image for RunPod GPU Instances
 
-This repository contains the Dockerfile and instructions to build and run the Instruct Lab image, which is optimized for NVIDIA CUDA and designed to be used primarily on RunPod GPU instances as well as on a local NVidia GPU enabled hardware. The container includes Jupyter Lab, ttyd web terminal, a file browser for easy document management and SSH access.
+This repository contains the Dockerfile and instructions to build and run the Instruct Lab image, which is optimized for NVIDIA CUDA and designed to be used primarily on RunPod GPU instances.
 
 ## Features
 
