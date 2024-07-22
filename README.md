@@ -90,13 +90,6 @@ Instruct Lab provides a variety of commands for interacting with models, data, a
 - **Test Model**: `ilab model test`
 - **Train Model**: `ilab model train`
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue on the repository.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Acknowledgments
 
