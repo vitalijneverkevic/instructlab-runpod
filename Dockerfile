@@ -23,6 +23,7 @@ RUN usermod -aG wheel instructlab
 
 # Set up a directory with correct ownership 
 WORKDIR /home/instructlab
+RUN mkdir /home/instructlab/persist-vol
 RUN chown -R instructlab:instructlab /home/instructlab
 
 
@@ -37,22 +38,24 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 
 
 # Install JupyterLab
-RUN pip3 install jupyterlab 
-RUN pip3 install notebook
-#RUN jupyter contrib nbextension install --user \
-#    && jupyter nbextension enable --py widgetsnbextension
+RUN pip3 install jupyterlab
+RUN pip3 install notebook==6.5.5
+#RUN pip3 install ipywidgets jupyterlab_widgets
 
+
+# Add relaxed security env var to ensure Jupyter starts 
+ENV JUPYTER_ALLOW_INSECURE_WRITES=True
 
 # Configure JupyterLab
-RUN mkdir -p /home/instructlab/.jupyter
-RUN echo "c.ServerApp.ip = '0.0.0.0'" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.port = 8888" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.token = ''" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.password = ''" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.allow_origin = '*'" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.allow_remote_access = True" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.disable_check_xsrf = True" >> /home/instructlab/.jupyter/jupyter_server_config.py
-RUN echo "c.ServerApp.authenticate_prometheus = False" >> /home/instructlab/.jupyter/jupyter_server_config.py
+#RUN su - instructlab -c "mkdir -p /home/instructlab/.jupyter"
+#RUN su - instructlab -c "echo "c.ServerApp.ip = '0.0.0.0'" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.port = 8888" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.token = ''" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.password = ''" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.allow_origin = '*'" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.allow_remote_access = True" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.disable_check_xsrf = True" >> /home/instructlab/.jupyter/jupyter_server_config.py"
+#RUN su - instructlab -c "echo "c.ServerApp.authenticate_prometheus = False" >> /home/instructlab/.jupyter/jupyter_server_config.py"
 
 
 # Install Filebrowser.org to manage files 
@@ -130,7 +133,7 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Expose ports
-EXPOSE 22 8888 8822 8080
+EXPOSE 22 8888 8822 8080 8000
 
 # Set the start script as the entry point
 CMD ["/start.sh"]
