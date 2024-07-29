@@ -2,6 +2,7 @@
 # Instruct Lab Docker Image for RunPod GPU Instances
 
 This is **experimental unofficial** repository that contains Dockerfile and instructions to build and run the Instruct Lab image, which is optimized for NVIDIA CUDA.
+For official Instruct Lab repository please go to https://github.com/instructlab
 
 ## Features
 
