@@ -13,13 +13,6 @@ For official Instruct Lab repository please go to https://github.com/instructlab
   - **Filebrowser.org file browser**: Accessible on port 8080.
   - **Internal SSH server**: Accessible on port 22/tcp.
 
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Build the Docker Image](#build-the-docker-image)
-- [Run the Docker Container](#run-the-docker-container)
-- [Accessing the Services](#accessing-the-services)
-- [Instruct Lab Commands](#instruct-lab-commands)
 
 ## Getting Started
 
