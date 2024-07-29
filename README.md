@@ -1,7 +1,7 @@
 ![Banner](https://github.com/instructlab/.github/blob/main/assets/instructlab-banner.png)
 # Instruct Lab Docker Image for RunPod GPU Instances
 
-This repository contains the Dockerfile and instructions to build and run the Instruct Lab image, which is optimized for NVIDIA CUDA and designed to be used primarily on RunPod GPU instances.
+This repository contains the Dockerfile and instructions to build and run the Instruct Lab image, which is optimized for NVIDIA CUDA.
 
 ## Features
 
@@ -33,7 +33,6 @@ git clone https://github.com/yourusername/instructlab-docker.git
 cd instructlab-docker
 docker build -t instructlab:latest .
 
-# Instruct Lab Docker Setup Guide
 ```
 
 ## Run the Docker Container
@@ -60,48 +59,4 @@ Once the container is running, you can access the following services:
 - **ttyd Terminal**: `http://<your-server-ip>:8822`
 - **SSH**: Connect using your preferred SSH client to `ssh <your-server-ip> -p 22`
 
-## Instruct Lab Commands
 
-Instruct Lab provides a variety of commands for interacting with models, data, and configurations. Below is a summary of some key commands.
-
-### General Commands
-
-- **Initialize Environment**: `ilab init`
-- **View System Information**: `ilab sysinfo`
-
-### Data Commands
-
-- **Generate Synthetic Data**: `ilab data generate`
-  - **Command Options**:
-    - `--model`: Name of the model used during generation.
-    - `--num-cpus`: Number of processes to use.
-    - `--chunk-word-count`: Number of words to chunk the document.
-    - `--num-instructions`: Number of instructions to generate.
-    - `--taxonomy-path`: Path to taxonomy.
-    - `--taxonomy-base`: Base git-ref for taxonomy.
-    - `--output-dir`: Output directory for generated files.
-
-### Model Commands
-
-- **Chat with Model**: `ilab model chat`
-- **Convert Model**: `ilab model convert`
-- **Download Model**: `ilab model download`
-- **Serve Model**: `ilab model serve`
-- **Test Model**: `ilab model test`
-- **Train Model**: `ilab model train`
-
-
-## Acknowledgments
-
-- Instruct Lab
-- RunPod
-
-For more details, refer to the official InstructLab documentation.
-<<<<<<< HEAD
-
- 
-
-
-
-=======
->>>>>>> 0e7caed (Fixed Jupyter Lab kernel placement)
